@@ -1,2 +1,3 @@
 # portfolio-data-engineer
-Proyectos de Data Engineering basados en mi experiencia profesional con Azure, Databricks, NiFi, Python y ETL.
+Repositorio con proyectos simulados y reales (sin información sensible) que representan mi experiencia en ingeniería de datos, ETL, Big Data y cloud.
+
