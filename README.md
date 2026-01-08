@@ -14,9 +14,7 @@ La arquitectura sigue las mejores prácticas de la industria ("Medallion Archite
 
 ## 🏗️ Arquitectura de la Solución
 
-<p align="center">
-  <img src="./img/arquitectura_azure.png" alt="Arquitectura Data Lakehouse" width="850">
-</p>
+<img width="720" height="393" alt="image" src="https://github.com/user-attachments/assets/b379f71e-2b71-4e53-93a9-773d8753df9e" />
 
 El flujo de datos se divide en las siguientes etapas:
 
