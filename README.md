@@ -5,61 +5,63 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
-## 📋 Descripción del Proyecto
-Este proyecto implementa una solución completa de Ingeniería de Datos tipo **Data Lakehouse** en Microsoft Azure. El objetivo principal es procesar grandes volúmenes de datos transaccionales, resolver problemas de rendimiento (Data Skew) y servir información de valor para el negocio con baja latencia.
+## 📋 Project Overview
+This project implements a complete **Data Lakehouse** solution on Microsoft Azure. The main objective is to build a robust pipeline that processes high volumes of transactional data, resolves critical performance issues (Data Skew), and delivers consolidated business insights with low latency.
 
-La arquitectura sigue las mejores prácticas de la industria ("Medallion Architecture"), garantizando la calidad, seguridad y gobernanza de los datos desde la ingesta hasta la visualización.
-
----
-
-## 🏗️ Arquitectura de la Solución
-
-<img width="720" height="393" alt="image" src="https://github.com/user-attachments/assets/b379f71e-2b71-4e53-93a9-773d8753df9e" />
-
-El flujo de datos se divide en las siguientes etapas:
-
-1. **Ingesta y Orquestación:** **Azure Data Factory (ADF)** orquesta la copia de datos crudos (CSV/JSON) desde fuentes externas hacia la capa *Bronze* del Data Lake.
-2. **Almacenamiento:** **ADLS Gen2** estructurado en capas (Bronze, Silver, Gold).
-3. **Procesamiento y Transformación:** - Uso de **Azure Databricks (PySpark)** y **Delta Lake**.
-   - **Silver Layer:** Limpieza de datos y Schema Enforcement.
-   - **Gold Layer:** Agregaciones de negocio complejas y optimización de JOINS.
-4. **Servicio (Serving):** Carga de datos refinados a **Azure Synapse Analytics (Dedicated SQL Pool)**.
-5. **Visualización:** Conexión vía DirectQuery desde **Power BI**.
-6. **Seguridad:** Gestión de credenciales "Zero-Trust" utilizando **Azure Key Vault**.
+The architecture follows industry best practices (**Medallion Architecture**), ensuring data quality, security, and governance from ingestion to visualization.
 
 ---
 
-## 💡 Desafío Técnico: Optimización de Data Skew
-Uno de los retos críticos de este pipeline fue el manejo de **Data Skew** (sesgo de datos) durante los Joins de grandes volúmenes entre la tabla de Transacciones y Clientes.
+## 🏗️ Solution Architecture
 
-**Solución Implementada:**
-- Detección de particiones desbalanceadas en Databricks.
-- Implementación de estrategias de **Salting** y **Broadcast Joins** en los Notebooks de la capa Gold.
-- **Resultado:** Reducción significativa en el tiempo de ejecución del Job y eliminación de errores por `OOM (Out Of Memory)`.
+<p align="center">
+  <img src="YOUR_IMAGE_LINK_HERE" alt="Data Lakehouse Architecture" width="850">
+</p>
 
----
+The data flow is divided into the following stages:
 
-## 🛠️ Stack Tecnológico
-
-| Componente | Tecnología | Uso Principal |
-|------------|------------|---------------|
-| **Cloud Provider** | Microsoft Azure | Infraestructura base |
-| **Compute** | Azure Databricks | Procesamiento ETL con PySpark |
-| **Storage** | ADLS Gen2 + Delta Lake | Almacenamiento optimizado y ACID |
-| **Orchestrator** | Azure Data Factory | Control de flujo y triggers |
-| **Warehouse** | Azure Synapse Analytics | Pool SQL Dedicado para consultas rápidas |
-| **Security** | Azure Key Vault | Gestión de secretos y Service Principals |
-| **BI** | Power BI | Dashboards y reporte final |
+1. **Ingestion & Orchestration:** **Azure Data Factory (ADF)** orchestrates the copy of raw data (CSV/JSON) from external sources to the *Bronze* layer of the Data Lake.
+2. **Storage:** **ADLS Gen2** structured in layers (Bronze, Silver, Gold).
+3. **Processing & Transformation:** - Powered by **Azure Databricks (PySpark)** and **Delta Lake**.
+   - **Silver Layer:** Data cleaning, deduplication, and Schema Enforcement.
+   - **Gold Layer:** Complex business aggregations and **JOIN optimization**.
+4. **Serving:** Refined data is loaded into **Azure Synapse Analytics (Dedicated SQL Pool)**.
+5. **Visualization:** Connected via DirectQuery using **Power BI**.
+6. **Security:** "Zero-Trust" credential management using **Azure Key Vault**.
 
 ---
 
-## 📂 Estructura del Repositorio
+## 💡 Technical Challenge: Handling Data Skew
+A critical challenge in this pipeline was managing **Data Skew** during the High-Volume Joins between Transaction and Customer tables.
+
+**Implemented Solution:**
+- Detection of unbalanced partitions in Databricks.
+- Implementation of **Salting** strategies and **Broadcast Joins** within the Gold layer notebooks.
+- **Result:** Significant reduction in Job execution time and elimination of `OOM (Out Of Memory)` errors.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology | Primary Usage |
+|-----------|------------|---------------|
+| **Cloud Provider** | Microsoft Azure | Infrastructure backbone |
+| **Compute** | Azure Databricks | ETL Processing with PySpark |
+| **Storage** | ADLS Gen2 + Delta Lake | Optimized ACID Storage |
+| **Orchestrator** | Azure Data Factory | Control flow and triggers |
+| **Warehouse** | Azure Synapse Analytics | Dedicated SQL Pool for fast querying |
+| **Security** | Azure Key Vault | Secrets and Service Principal management |
+| **BI** | Power BI | Dashboards and Reporting |
+
+---
+
+## 📂 Repository Structure
 ```bash
-├── data/                  # Scripts de generación de data dummy (si aplica)
-├── notebooks/             # Código PySpark (Databricks)
+├── data/                  # Dummy data generation scripts (if applicable)
+├── notebooks/             # PySpark Code (Databricks)
 │   ├── 1_bronze_to_silver.py
-│   ├── 2_silver_to_gold_skew_optimization.py  <-- Lógica Anti-Skew
+│   ├── 2_silver_to_gold_skew_optimization.py  <-- Anti-Skew Logic
 │   └── 3_gold_to_synapse.py
-├── pipelines/             # Templates JSON de Azure Data Factory
-├── img/                   # Diagramas y capturas
-└── README.md              # Documentación
+├── pipelines/             # Azure Data Factory ARM/JSON templates
+├── img/                   # Diagrams and screenshots
+└── README.md              # Project Documentation
