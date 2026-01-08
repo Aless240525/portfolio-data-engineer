@@ -14,9 +14,8 @@ The architecture follows industry best practices (**Medallion Architecture**), e
 
 ## 🏗️ Solution Architecture
 
-<p align="center">
-  <img src="YOUR_IMAGE_LINK_HERE" alt="Data Lakehouse Architecture" width="850">
-</p>
+<img width="1024" height="565" alt="image" src="https://github.com/user-attachments/assets/8b3ba211-80a6-4d75-bf26-c8478d270269" />
+
 
 The data flow is divided into the following stages:
 
