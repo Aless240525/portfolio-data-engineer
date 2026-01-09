@@ -264,7 +264,7 @@
                 },
                 "userProperties": [],
                 "typeProperties": {
-                    "notebookPath": "/Users/joaqin2796@gmail.com/3_Gold_to_Synapse"
+                    "notebookPath": "/Users/joaqin2796@gmail.com/03_Gold_to_Synapse"
                 },
                 "linkedServiceName": {
                     "referenceName": "AzureDatabricks1",
