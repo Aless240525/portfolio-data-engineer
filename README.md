@@ -10,18 +10,18 @@ This project implements a complete **Data Lakehouse** solution on Microsoft Azur
 
 The architecture follows industry best practices (**Medallion Architecture**), ensuring data quality, security, and governance from ingestion to visualization.
 
----
+<img width="2784" height="1536" alt="Arquitectura de solucion" src="https://github.com/user-attachments/assets/8a33b2f9-c16b-490b-9aab-af136c54f5d2" />
+
 
 ## 🏗️ Solution Architecture
 
-<img width="1024" height="565" alt="image" src="https://github.com/user-attachments/assets/8b3ba211-80a6-4d75-bf26-c8478d270269" />
-
+<img width="1024" height="565" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/8b3ba211-80a6-4d75-bf26-c8478d270269" />
 
 The data flow is divided into the following stages:
 
 1. **Ingestion & Orchestration:** **Azure Data Factory (ADF)** orchestrates the copy of raw data (CSV/JSON) from external sources to the *Bronze* layer of the Data Lake.
 2. **Storage:** **ADLS Gen2** structured in layers (Bronze, Silver, Gold).
-3. **Processing & Transformation:** - Powered by **Azure Databricks (PySpark)** and **Delta Lake**.
+3. **Processing & Transformation:** Powered by **Azure Databricks (PySpark)** and **Delta Lake**.
    - **Silver Layer:** Data cleaning, deduplication, and Schema Enforcement.
    - **Gold Layer:** Complex business aggregations and **JOIN optimization**.
 4. **Serving:** Refined data is loaded into **Azure Synapse Analytics (Dedicated SQL Pool)**.
@@ -54,13 +54,30 @@ A critical challenge in this pipeline was managing **Data Skew** during the High
 
 ---
 
+## 📊 Data Visualization (Power BI)
+The pipeline concludes by making data available in Azure Synapse Analytics, which is consumed via **DirectQuery** to ensure up-to-date information.
+
+<img width="3301" height="1829" alt="image" src="https://github.com/user-attachments/assets/f98dc748-2df6-426a-96f0-06ef6a3f9971" />
+
+*(Dashboard displaying Sales KPIs and distribution analysis by country)*
+
+---
+
 ## 📂 Repository Structure
 ```bash
-├── data/                  # Dummy data generation scripts (if applicable)
-├── notebooks/             # PySpark Code (Databricks)
-│   ├── 1_bronze_to_silver.py
-│   ├── 2_silver_to_gold_skew_optimization.py  <-- Anti-Skew Logic
-│   └── 3_gold_to_synapse.py
-├── pipelines/             # Azure Data Factory ARM/JSON templates
-├── img/                   # Diagrams and screenshots
-└── README.md              # Project Documentation
+├── datasets/                  # JSON definitions for ADF Datasets
+│   ├── GETCSVFILE.json
+│   ├── GETJSONFILE.json
+│   ├── target_CSV.json
+│   ├── target_json.json
+├── linkservices/              # Connection configurations (Linked Services)
+│   ├── AzureDataLakeStorage1.json
+│   ├── AzureDatabricks1.json
+│   └── LS_KeyVault.json
+├── notebooks/                 # PySpark Code (Databricks)
+│   ├── 01_Bronze_to_Silver.py
+│   ├── 02_Silver_to_Gold.py   # <-- Includes Anti-Skew Logic (Salting/Broadcast)
+│   └── 03_Gold_to_Synapse.py
+├── pipelines/                 # Azure Data Factory Pipelines
+│   └── pipeline_adf.json
+└── README.md                  # Project Documentation
