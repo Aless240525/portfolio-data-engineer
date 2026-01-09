@@ -10,9 +10,6 @@ This project implements a complete **Data Lakehouse** solution on Microsoft Azur
 
 The architecture follows industry best practices (**Medallion Architecture**), ensuring data quality, security, and governance from ingestion to visualization.
 
-<img width="2784" height="1536" alt="Arquitectura de solucion" src="https://github.com/user-attachments/assets/8a33b2f9-c16b-490b-9aab-af136c54f5d2" />
-
-
 ## 🏗️ Solution Architecture
 
 <img width="1024" height="565" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/8b3ba211-80a6-4d75-bf26-c8478d270269" />
