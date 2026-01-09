@@ -1,0 +1,31 @@
+{
+    "name": "target_json",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorage1",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "StorageAccountName": {
+                    "value": "@dataset().ds_sink_accountname",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "ds_sink_accountname": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "folderPath": "test_1",
+                "fileSystem": "bronze"
+            }
+        },
+        "schema": {}
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

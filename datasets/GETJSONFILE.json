@@ -1,0 +1,57 @@
+{
+    "name": "GETJSONFILE",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorage1",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "StorageAccountName": {
+                    "value": "@dataset().ds_account_name",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "filename": {
+                "type": "string"
+            },
+            "ds_account_name": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@dataset().filename",
+                    "type": "Expression"
+                },
+                "folderPath": "jsonfiles",
+                "fileSystem": "landing"
+            }
+        },
+        "schema": {
+            "type": "object",
+            "properties": {
+                "customer_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "segment": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
