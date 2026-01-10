@@ -54,6 +54,8 @@ A critical challenge in this pipeline was managing **Data Skew** during the High
 ## 📊 Data Visualization (Power BI)
 The pipeline concludes by making data available in Azure Synapse Analytics, which is consumed via **DirectQuery** to ensure up-to-date information.
 
+### 🔴 [Live Demo: Interact with the Dashboard Here](https://management.azure.com/subscriptions/[a9f316a1-95c4-442e-b14c-be3c9b67f2fe]/resourceGroups/[rg-datalakehouse-dev]/providers/Microsoft.Synapse/workspaces/[synapse-proyecto-alessandro]/sqlPools/[sqlpool01]/resume?api-version=2021-06-01)
+
 <img width="3301" height="1829" alt="image" src="https://github.com/user-attachments/assets/f98dc748-2df6-426a-96f0-06ef6a3f9971" />
 
 *(Dashboard displaying Sales KPIs and distribution analysis by country)*
