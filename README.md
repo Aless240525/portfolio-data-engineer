@@ -56,9 +56,8 @@ The pipeline concludes by making data available in Azure Synapse Analytics, whic
 
 ### 🔴 [Live Demo: Interact with the Dashboard Here](https://app.powerbi.com/view?r=eyJrIjoiOWVmNmE4MTktYTJjNS00MWVkLThkMDgtMjYwMjAxODU3YzQ1IiwidCI6IjExY2Y1N2U2LTIyMWQtNDU2My1hNDc1LTk2ODk4YTJjOTE2OSIsImMiOjR9)
 
-<img width="3301" height="1829" alt="image" src="https://github.com/user-attachments/assets/f98dc748-2df6-426a-96f0-06ef6a3f9971" />
-
 *(Dashboard displaying Sales KPIs and distribution analysis by country)*
+<img width="3301" height="1829" alt="image" src="https://github.com/user-attachments/assets/f98dc748-2df6-426a-96f0-06ef6a3f9971" />
 
 ---
 
