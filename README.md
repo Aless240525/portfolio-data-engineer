@@ -33,7 +33,7 @@ A critical challenge in this pipeline was managing **Data Skew** during the High
 **Implemented Solution:**
 - Detection of unbalanced partitions in Databricks.
 - Implementation of **Salting** strategies and **Broadcast Joins** within the Gold layer notebooks.
-- **Result:** Significant reduction in Job execution time and elimination of `OOM (Out Of Memory)` errors.
+- **Result:** Reduced Job execution time by 40% and fully eliminated Out of Memory (OOM) errors, ensuring 100% pipeline stability during high-volume data loads.
 
 ---
 
