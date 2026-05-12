@@ -53,7 +53,7 @@ A critical challenge in this pipeline was managing **Data Skew** during the High
 
 ### 🏗️ Infrastructure as Code (IaC)
 
-This project follows enterprise best practices by managing cloud infrastructure through **Terraform**. All Azure resources (ADLS Gen2, Databricks, Data Factory, Synapse, and Key Vault) are defined programmatically to ensure a reproducible, auditable, and scalable deployment across environments. Check the `terraform/` directory for the `.tf` configurations.---
+This project follows enterprise best practices by managing cloud infrastructure through **Terraform**. All Azure resources (ADLS Gen2, Databricks, Data Factory, Synapse, and Key Vault) are defined programmatically to ensure a reproducible, auditable, and scalable deployment across environments. Check the `terraform/` directory for the `.tf` configurations.
 
 ---
 
